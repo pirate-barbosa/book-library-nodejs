@@ -21,6 +21,8 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+mongoose.set('useUnifiedTopology', true);
+// mongoose.set('debug', true);
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true
 });
