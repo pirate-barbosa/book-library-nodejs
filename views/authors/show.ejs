@@ -1,0 +1,8 @@
+<h2><%= locals.author.name%></h2>
+<a href="/authors/<%= locals.author.id%>/edit">Edit</a>
+<%- include('../partials/deleteForm', {url: `/authors/${author.id}`})%> <% if
+(locals.booksByAuthor.length> 0){%>
+<h2>Books by Author</h2>
+<% locals.booksByAuthor.forEach(book => { %>
+<img height="150" width="100" src="<%= book.coverImagePath %>" />
+<% }) %> <% } %>
