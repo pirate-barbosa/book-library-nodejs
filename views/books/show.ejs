@@ -1,0 +1,10 @@
+<h2><%= locals.book.title%></h2>
+<img width="100" height="150" src="<%=locals.book.coverImagePath%>" />
+<div>Author: <%= locals.book.author.name%></div>
+<div>Publish Date: <%= locals.book.publishDate.toDateString()%></div>
+<div>Page Count: <%= locals.book.pageCount%></div>
+<div>Description: <%= locals.book.description%></div>
+
+<a href="/books/<%= locals.book.id%>/edit">Edit</a>
+<%- include('../partials/deleteForm', {url:`/books/${locals.book.id}`})%>
+<a href="/authors/<%= locals.book.author.id%>">View Author</a>

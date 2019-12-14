@@ -2,20 +2,30 @@
 <form action="/books" method="GET">
   <div>
     <label>Title</label>
-    <input type="text" name="title" value="<%= locals.searchOptions.title %>">
+    <input type="text" name="title" value="<%= locals.searchOptions.title %>" />
   </div>
   <div>
     <label>Published After</label>
-    <input type="date" name="publishedAfter" value="<%= locals.searchOptions.publishedAfter %>">
+    <input
+      type="date"
+      name="publishedAfter"
+      value="<%= locals.searchOptions.publishedAfter %>"
+    />
   </div>
   <div>
     <label>Published Before</label>
-    <input type="date" name="publishedBefore" value="<%= locals.searchOptions.publishedBefore %>">
+    <input
+      type="date"
+      name="publishedBefore"
+      value="<%= locals.searchOptions.publishedBefore %>"
+    />
   </div>
   <button type="submit>">Submit</button>
 </form>
 <div>
   <% locals.books.forEach(book => { %>
-  <img height="150" width="100" src="<%= book.coverImagePath %>">
+  <a href="/books/<%= book.id %>">
+    <img height="150" width="100" src="<%= book.coverImagePath %>" />
+  </a>
   <% }) %>
 </div>
