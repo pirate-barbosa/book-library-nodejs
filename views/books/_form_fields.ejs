@@ -1,33 +1,39 @@
-<div>
-  <label>Title</label>
-  <input type="text" name="title"value="<%= locals.book.title%>">
+<div class="form-row">
+  <div class="form-item">
+    <label>Title</label>
+    <input type="text" name="title" value="<%= locals.book.title%>">
+  </div>
+  <div class="form-item">
+    <label>Author</label>
+    <select name="author">
+      <% locals.authors.forEach(author => { %>
+      <% if(author.id === locals.book.author) { %>
+      <option selected label="<%= author.name%>" value="<%= author.id%>">
+        <% } else { %>
+      <option label="<%= author.name %>" value="<%= author.id %>">
+        <% } %>
+        <% })%>
+    </select>
+  </div>
 </div>
-<div>
-  <label>Author</label>
-  <select name="author">
-    <% locals.authors.forEach(author => { %>
-    <% if(author.id === locals.book.author) { %>
-    <option selected label="<%= author.name%>" value="<%= author.id%>">
-      <% } else { %>
-    <option label="<%= author.name %>" value="<%= author.id %>">
-      <% } %>
-      <% })%>
-  </select>
+<div class="form-row">
+  <div class="form-item">
+    <label>Publish Date</label>
+    <input type="date" name="publishDate"
+      value="<%= locals.book.publishDate == null ? '' : locals.book.publishDate.toISOString().split('T')[0] %>">
+  </div>
+  <div class="form-item">
+    <label>Page Count</label>
+    <input type="number" min="1" name="pageCount" value="<%= locals.book.pageCount %>">
+  </div>
 </div>
-<div>
-  <label>Publish Date</label>
-  <input type="date" name="publishDate"
-    value="<%= locals.book.publishDate == null ? '' : locals.book.publishDate.toISOString().split('T')[0] %>">
-</div>
-<div>
-  <label>Page Count</label>
-  <input type="number" min="1" name="pageCount" value="<%= locals.book.pageCount %>">
-</div>
-<div>
-  <label>Cover</label>
-  <input type="file" name="cover" class="filepond">
-</div>
-<div>
-  <label>Description</label>
-  <textarea type="text" name="description"><%= locals.book.description%></textarea>
+<div class="form-row">
+  <div class="form-item form-item-no-grow">
+    <label>Cover</label>
+    <input type="file" name="cover" class="filepond">
+  </div>
+  <div class="form-item">
+    <label>Description</label>
+    <textarea type="text" name="description"><%= locals.book.description%></textarea>
+  </div>
 </div>

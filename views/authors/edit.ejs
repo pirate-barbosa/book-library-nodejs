@@ -2,6 +2,8 @@
 
 <form action="/authors/<%= locals.author.id%>?_method=PUT" method="POST">
   <%- include('_form_fields') %>
-  <a href="/authors/<%= locals.author.id %>">Cancel</a>
-  <button type="submit">Update</button>
+  <div class="form-row form-row-end btn-row">
+    <a class="btn btn-danger" href="/authors/<%= locals.author.id %>">Cancel</a>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </div>
 </form>
