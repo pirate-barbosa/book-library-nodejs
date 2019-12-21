@@ -1,10 +1,21 @@
 <h2 class="page-header"><%= locals.book.title%></h2>
-<img width="100" height="150" src="<%=locals.book.coverImagePath%>" />
-<div>Author: <%= locals.book.author.name%></div>
-<div>Publish Date: <%= locals.book.publishDate.toDateString()%></div>
-<div>Page Count: <%= locals.book.pageCount%></div>
-<div>Description: <%= locals.book.description%></div>
-
-<a href="/books/<%= locals.book.id%>/edit">Edit</a>
-<%- include('../partials/deleteForm', {url:`/books/${locals.book.id}`})%>
-<a href="/authors/<%= locals.book.author.id%>">View Author</a>
+<div class="book-details">
+  <div>
+    <img class="book-cover" width="100" height="150" src="<%=locals.book.coverImagePath%>" />
+    <div class="book-details-btn-grid">
+      <a class="btn btn-primary" href="/books/<%= locals.book.id%>/edit">Edit</a>
+      <%- include('../partials/deleteForm', {url:`/books/${locals.book.id}`})%>
+      <a class="btn btn-primary book-details-author-button" href="/authors/<%= locals.book.author.id%>">View Author</a>
+    </div>
+  </div>
+  <div class="book-details-grid">
+    <div class="book-details-label">Author:</div>
+    <div><%= locals.book.author.name%></div>
+    <div class="book-details-label">Publish Date:</div>
+    <div><%= locals.book.publishDate.toDateString()%></div>
+    <div class="book-details-label">Page Count:</div>
+    <div><%= locals.book.pageCount%></div>
+    <div class="book-details-label">Description:</div>
+    <div><%= locals.book.description%></div>
+  </div>
+</div>
